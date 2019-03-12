@@ -1,0 +1,131 @@
+查看版本                        select version();
+查看当前日期和时间              select now();
+查看当前日期                    select current_date;
+查看时间               		select current_time;
+查看已创建的数据库		show databases;
+
+
+创建数据库 			create databases thomas;
+删除数据库			drop databases thomas;
+
+
+创建数据表			
+create table person(
+id int(10),
+name varchar(255),
+sex char(10),
+age int(5)
+);
+查看表				show tables;
+查看表的结构			describe person;
+
+2、修改表结构（字段）
+ （1）新增字段  
+alter table person add address varchar(255);      add ：新增字段的关键字
+ （2）修改字段的名称、类型、长度
+alter table person  change age birthdate date;    change  :修改字段名称、类型、长度的关键字
+ （3）修改字段的类型和长度
+alter table person modify name char(100);        modify  :修改字段的类型和长度的关键字
+ （4）删除字段
+alter table person drop address;                 drop  :删除表的关键字
+ （5）修改表名
+alter table person rename person1;              rename：修改表名的关键字
+ （6）删除表结构
+drop table person;
+1、新增数据
+（1）按照默认方式新增
+insert into person values(1,'xiaoming','male','1990-01-01');
+（2）按默认方式批量新增
+insert into person values(2,'xiaoqing','female','1991-01-01'),(3,'xiaobai','female','1992-01-01'),..;
+（3）自定义新增
+insert into person(id,name,sex,birthdate) values(4,'xiaohan','female','1993-01-01'),....;
+（4）自定义批量新增
+insert into person(id,name) values(5,'xiaoying'),.....;
+2、修改数据
+update person set birthdate='1998-08-08';
+3、删除数据
+delete from person where name='xiaoming';
+
+三、数据查询语言DQL（
+1、简单查询
+ select * from person where sex is null;
+找出name值以'xiao'开头
+select * from person where name like'xiao%';
+（2）查询name字段以ming结束的
+select * from person where name like '%ming';
+（3）查询name字段包含in
+select * from person where name like '%in%';
+
+
+1、表的别名(1、表的别名)
+select * from person p where p.name like '张%';
+2、字段别名
+select id as '标识',name as '姓名',sex as '性别' ，birthdate as '生日' from person;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sid int(10),
+sname varchar(255),            运动员标识，运动员名称，国家，昵称，参加项目
+country varchar(255),
+nickname varchar(255),   
+project varchar(255)
+
+ 
+
+create table medal(
+mid int(10)，                        奖牌标识，名称（内容包括金、银、铜牌
+mname varchar(255)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
